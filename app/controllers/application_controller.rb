@@ -20,8 +20,7 @@ class ApplicationController < Sinatra::Base
     user = User.new(username: params[:username], password: params[:password])
 
     if user.save
-      session[:user_id] = user.id
-      erb :account
+      redirect '/login'
     else
       redirect '/failure'
     end
